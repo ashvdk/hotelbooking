@@ -48,7 +48,8 @@ function App() {
       })
       sethotels([...sortHotel])
     }
-    let sortByHighesttoLowest = () => {
+    let sortByHighesttoLowest = useCallback(
+      () => {
       console.log("calling sorting 1")
       let sortHotel = [...hotels];
       sortHotel.sort((a, b) => {
@@ -61,7 +62,7 @@ function App() {
         return 0;
       })
       sethotels([...sortHotel])
-    }
+    },[])
     
     const fetchData = async () => {
         let response = await fetch('https://640f09d6cde47f68db3f7dcd.mockapi.io/api/v1/hotels');
